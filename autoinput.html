@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>autoSuggestionInput</title>
+    <style>
+        body{
+            margin: 10px;
+        }
+
+        .searchItem{
+            display: none;
+            padding: 10px 10px;
+            font-family: sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .searchItem:hover{
+            background-color: yellow;
+        }
+        .search-main{
+            display: flex;
+            margin: 30px auto 30px auto;
+            outline: none;
+            width: 30%;
+            flex-direction: column;
+        }
+        #search{
+            outline: none;
+            border: 1px solid black;
+            padding: 10px 10px;
+            width: -webkit-fill-available;
+            font-size: 12px;
+        }
+        .search-internal{
+            position: relative;
+        }
+        .search-content{
+            position: absolute;
+            top: calc(0px + 37px);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+            background-color: white;
+            width: -webkit-fill-available;
+            max-height: 500px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            outline: none;
+            z-index: -1;
+        }
+        .search-pop-icon{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(-50%, -42%);
+        }
+        .search-ic{
+            position: relative;
+        }
+        .cross-icon{
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-main">
+        <div class="search-internal">
+            <div class="search-ic">
+                <input type="text" placeholder="Search your state" id="search">
+                <span class="search-pop-icon">
+                    <span class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="22" viewBox="0 0 22 22">
+                            <g fill="none" fill-rule="evenodd">
+                                <path fill="#9E9E9E" fill-rule="nonzero" d="M18.465 17.319l-3.728-3.81a6.13 6.13 0 001.484-3.995c0-3.426-2.838-6.214-6.325-6.214-3.488 0-6.325 2.788-6.325 6.214 0 3.426 2.837 6.214 6.325 6.214 1.309 0 2.557-.388 3.623-1.124l3.757 3.838c.157.16.368.249.595.249.214 0 .417-.08.571-.226a.801.801 0 00.023-1.146zM9.895 4.92c2.578 0 4.676 2.06 4.676 4.593s-2.098 4.593-4.675 4.593c-2.578 0-4.675-2.06-4.675-4.593s2.097-4.593 4.675-4.593z"></path>
+                                <path d="M0 0H22V22H0z"></path>
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="cross-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="22" viewBox="0 0 22 22">
+                            <g fill="none" fill-rule="evenodd">
+                                <path fill="#BDBDBD" d="M11 21C5.477 21 1 16.523 1 11S5.477 1 11 1s10 4.477 10 10-4.477 10-10 10zm.95-10l2.853-2.852a.672.672 0 10-.95-.951L11 10.049 8.148 7.197a.672.672 0 10-.951.95L10.049 11l-2.852 2.852a.672.672 0 00.95.951L11 11.951l2.852 2.852a.672.672 0 10.951-.95L11.951 11z"></path>
+                                <path d="M0 0H22V22H0z"></path>
+                            </g>
+                        </svg>
+                    </span>
+                </span>
+            </div>
+            <div class="search-content" tabindex="1">
+                <div class="searchItem">Uttar Pradesh</div>
+                <div class="searchItem">Arunachal Pradesh</div>
+                <div class="searchItem">Assam</div>
+                <div class="searchItem">Bihar</div>
+                <div class="searchItem">Chhattisgarh</div>
+                <div class="searchItem">Goa</div>
+                <div class="searchItem">Gujarat</div>
+                <div class="searchItem">Haryana</div>
+                <div class="searchItem">Himachal Pradesh</div>
+                <div class="searchItem">Jammu and Kashmir</div>
+                <div class="searchItem">Jharkhand</div>
+                <div class="searchItem">Karnataka</div>
+                <div class="searchItem">Kerala</div>
+                <div class="searchItem">Madya Pradesh</div>
+                <div class="searchItem">Maharashtra</div>
+                <div class="searchItem">Manipur</div>
+                <div class="searchItem">Meghalaya</div>
+                <div class="searchItem">Mizoram</div>
+                <div class="searchItem">Nagaland</div>
+                <div class="searchItem">Orissa</div>
+                <div class="searchItem">Punjab</div>
+                <div class="searchItem">Rajasthan</div>
+                <div class="searchItem">Sikkim</div>
+                <div class="searchItem">Tamil Nadu</div>
+                <div class="searchItem">Telagana</div>
+                <div class="searchItem">Tripura</div>
+                <div class="searchItem">Uttaranchal</div>
+                <div class="searchItem">Uttar Pradesh</div>
+                <div class="searchItem">West Bengal</div>
+                <div class="searchItem">Chandigarh</div>
+                <div class="searchItem">Delhi</div>
+                <div class="searchItem">Rahul alam alam alam</div>
+            </div>
+        </div>
+    </div>
+      <script>
+window.onload = function(){
+    var vall = document.querySelector("#search");
+    vall.addEventListener("keyup", function(){
+        var ele = document.querySelectorAll(".searchItem"),r;
+        for(r = 0; r < ele.length; r++){
+            if(vall.value.length >= 2){
+                var valLower = vall.value.toLowerCase();
+                var innLower = ele[r].innerText.toLowerCase();
+                if(innLower.includes(valLower, 0)){
+                    ele[r].style.display = "block";
+                    ele[r].parentNode.style.display = "block";
+                }else{
+                    ele[r].style.display = "none";
+                }
+
+                ele[r].addEventListener("click", function(){
+                    search.value = this.innerText;
+                    this.parentNode.style.display = "none";
+                    vall.focus();
+                })
+            }
+
+            if(vall.value.length > 0){
+                document.querySelector(".cross-icon").style.display = "block";
+                document.querySelector(".search-icon").style.display = "none";
+            }else{
+                document.querySelector(".search-icon").style.display = "block";
+                document.querySelector(".cross-icon").style.display = "none";
+                ele[r].style.display = "block";
+            }
+
+            // vall.addEventListener("focusout", function(){
+            //     if(vall.value == innLower){
+            //         console.log("match");
+            //     }else{
+            //         console.log("not match");
+            //     }
+            // })   
+        }
+
+    })
+
+    document.addEventListener("click", function(){
+        document.querySelector(".search-content").style.display = "none";
+    })
+
+    document.querySelector(".cross-icon").addEventListener("click", function(){
+        if(vall.value){
+            vall.value = null;
+            vall.focus();
+            document.querySelector(".cross-icon").style.display = "none";
+            document.querySelector(".search-icon").style.display = "block";
+        }
+    })
+}
+      </script>
+</body>
+</html>
