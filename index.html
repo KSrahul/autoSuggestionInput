@@ -24,7 +24,7 @@
             display: flex;
             margin: 30px auto 30px auto;
             outline: none;
-            width: 30%;
+            width: 400px;
             flex-direction: column;
         }
         #search{
@@ -61,6 +61,16 @@
         .cross-icon{
             display: none;
             cursor: pointer;
+        }
+        
+        @media (max-width:422px){
+            .search-main{
+                flex-direction: unset;
+            }
+            .search-internal,
+            .search-main{
+                width: 100%;
+            }
         }
     </style>
 </head>
