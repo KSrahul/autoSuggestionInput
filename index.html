@@ -158,6 +158,8 @@ window.onload = function(){
                 }
                 function parentN(){
                     this.parentNode.style.display = "none";
+                    document.querySelector(".cross-icon").style.display = "block";
+                    document.querySelector(".search-icon").style.display = "none"
                 }
 
                 if(document.querySelectorAll(".hide-search").length == document.querySelectorAll(".searchItem").length){
@@ -179,7 +181,7 @@ window.onload = function(){
         }
 
     })
-
+    
     document.querySelector(".cross-icon").addEventListener("click", function(){
         if(vall.value){
             vall.value = null;
