@@ -180,6 +180,19 @@ window.onload = function(){
 
     })
 
+    document.querySelector(".cross-icon").addEventListener("click", function(){
+        if(vall.value){
+            vall.value = null;
+            vall.focus();
+            document.querySelector(".cross-icon").style.display = "none";
+            document.querySelector(".search-icon").style.display = "block";
+            document.querySelector(".no-result").style.display = "none";
+            var loop = document.querySelectorAll(".searchItem")
+            loop.forEach(function(loop){
+                loop.style.display = "block";
+            })
+        }
+    })
     // document.querySelector(".click").addEventListener("click", function(keyy){
     //     // if(keyy.keyCode == 40){
     //         var allC = document.getElementsByClassName("allEl"),i
@@ -198,16 +211,6 @@ window.onload = function(){
             
     //     // }
     // })
-
-    document.querySelector(".cross-icon").addEventListener("click", function(){
-        if(vall.value){
-            vall.value = null;
-            vall.focus();
-            document.querySelector(".cross-icon").style.display = "none";
-            document.querySelector(".search-icon").style.display = "block";
-            document.querySelector(".no-result").style.display = "none";
-        }
-    })
 }
       </script>
 </body>
