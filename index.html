@@ -189,12 +189,16 @@ window.onload = function(){
             document.querySelector(".search-icon").style.display = "block";
             document.querySelector(".no-result").style.display = "none";
             document.querySelector(".search-content").style.display = "block";
-            var loop = document.querySelectorAll(".searchItem")
+            var loop = document.querySelectorAll(".searchItem");
             loop.forEach(function(loop){
                 loop.style.display = "block";
             })
         }
     })
+
+    document.onclick = function(){
+        document.querySelector(".search-content").style.display = "none";
+    }
     // document.querySelector(".click").addEventListener("click", function(keyy){
     //     // if(keyy.keyCode == 40){
     //         var allC = document.getElementsByClassName("allEl"),i
