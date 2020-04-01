@@ -180,24 +180,24 @@ window.onload = function(){
 
     })
 
-    document.querySelector(".click").addEventListener("click", function(keyy){
-        // if(keyy.keyCode == 40){
-            var allC = document.getElementsByClassName("allEl"),i
-            var list = Array.from(allC).slice(0, 1);
-            for(i = 0; i < list.length; i++){
-                var classs = document.querySelector(".added");
-                if(list[i].className == "searchItem allEl"){
-                    list[i].classList.remove("allEl");
-                }
-                list[i].classList.add("showEl");
-                if(list[i].classList.contains("added")){
-                    list[i].classList.remove("showEl");
-                }
+    // document.querySelector(".click").addEventListener("click", function(keyy){
+    //     // if(keyy.keyCode == 40){
+    //         var allC = document.getElementsByClassName("allEl"),i
+    //         var list = Array.from(allC).slice(0, 1);
+    //         for(i = 0; i < list.length; i++){
+    //             var classs = document.querySelector(".added");
+    //             if(list[i].className == "searchItem allEl"){
+    //                 list[i].classList.remove("allEl");
+    //             }
+    //             list[i].classList.add("showEl");
+    //             if(list[i].classList.contains("added")){
+    //                 list[i].classList.remove("showEl");
+    //             }
                 
-            }
+    //         }
             
-        // }
-    })
+    //     // }
+    // })
 
     document.querySelector(".cross-icon").addEventListener("click", function(){
         if(vall.value){
